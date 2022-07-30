@@ -1,0 +1,56 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, total={7.3in, 9.7in}]{geometry}
+\usepackage{amsmath}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{backgroundcolor}{rgb}{1, 1, 1}
+\definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
+\definecolor{keywordstyle}{rgb}{0.6, 0.14, 0.576}
+\definecolor{numberstyle}{rgb}{0.5, 0.5, 0.5}
+\definecolor{stringstyle}{rgb}{0.77, 0.1, 0.08}
+
+\lstdefinestyle{xcodecolor}{
+    backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentstyle},
+    keywordstyle=\color{keywordstyle},
+    numberstyle=\scriptsize\color{numberstyle},
+    stringstyle=\color{stringstyle},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=xcodecolor}
+
+
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\begin{document}
+
+	{\Large
+	\textbf{XXXX}}
+	
+	\vspace{0.4cm}
+	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
+	\\
+	% document
+
+	\textbf{Sample Program}\\
+	\lstinputlisting[language=Python]{sampleSolution.py}
+	
+
+\end{document}
