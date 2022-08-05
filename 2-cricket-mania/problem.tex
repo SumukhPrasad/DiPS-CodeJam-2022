@@ -21,8 +21,7 @@
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
+    keepspaces=true,                   
     numbersep=5pt,                  
     showspaces=false,                
     showstringspaces=false,
@@ -74,7 +73,12 @@
       \item $ 1 \ge t \ge 50 $
     \end{itemize}
     \subsection*{Sample Input/Output}
-
+    \begin{tabular}{ |l|l| } 
+      \hline
+      \textbf{Input} & \textbf{Output} \\
+      {\lstinputlisting{./testCases/input/input10.txt}} & {\lstinputlisting{./testCases/output/output10.txt}} \\ % use \lstinputlisting{./testCases/<in/out>put/00/.txt}
+      \hline
+     \end{tabular}
     \subsection*{Solving the Problem}
     To get the maximum possible points, a team has to win every match they play. Let's assume that the team in 1st place won all the matches they played. In a \textit{round-robin} fashion, each team will have played $n-1$ matches. As the first team won all the matches they played, all the other teams have $n-2$ matches, which they may win or loose. To maximize the difference in points between the first-placed team and second-placed team, points of the second-placed team must be the minimum possible, without changing its standing. This will happen only when the team wins and looses an equal number of matches. Applying this, we get the formula:
     \begin{align*}
