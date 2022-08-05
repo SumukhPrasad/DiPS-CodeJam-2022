@@ -38,7 +38,10 @@
 %  Arg 1 (Optional) - How high to raise the rule
 %  Arg 2            - Thickness of the rule
 \newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
-
+\setlength{\parindent}{0pt}
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
 \begin{document}
 
 	{\Large
@@ -48,9 +51,8 @@
 	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
 	\\
 	
-	\textbf{Prompt}\\
+	\section*{Prompt}
     Given a random string \textit{n} of length $\ge$ 100 characters, print a formatted string \texttt{Hello, <n>!}. The first (and the only) input line contains \textit{n} -- which you have to format.\\
-    \\
 
 	\textbf{Sample Program}
 	\lstinputlisting[language=Python]{sampleSolution.py}
