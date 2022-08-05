@@ -4,6 +4,8 @@
 \usepackage{upquote}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amssymb}
 
 \definecolor{backgroundcolor}{rgb}{1, 1, 1}
 \definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
@@ -32,14 +34,15 @@
 
 \lstset{style=xcodecolor}
 
-
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
 
 % Raised Rule Command:
 %  Arg 1 (Optional) - How high to raise the rule
 %  Arg 2            - Thickness of the rule
 \newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
 \setlength{\parindent}{0pt}
-\usepackage{titlesec}
 \titleformat{\section}
   {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
 \begin{document}
@@ -51,6 +54,32 @@
 	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
 	\\
 	% document
+
+  \section*{Prompt}
+
+
+  \subsection*{Input Format}
+
+  \subsection*{Output Format}
+
+  \subsection*{Constraints}
+
+  \subsection*{Sample Input/Output}
+  \begin{tabular}{ |l|l| } 
+    \hline
+    \textbf{Input} & \textbf{Output} \\
+    {Sample input} & {Sample output} \\ % use \lstinputlisting{./testCases/<in/out>put/00/.txt}
+    \hline
+   \end{tabular}
+
+
+  \section*{Solution}
+
+
+  \subsection*{Simplifying the Problem}
+
+  \subsection*{Solving the Problem}
+
 
 	\section*{Sample Program}
 	\lstinputlisting[language=Python]{sampleSolution.py}
