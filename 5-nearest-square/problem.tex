@@ -1,0 +1,99 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, total={7.3in, 9.7in}]{geometry}
+\usepackage{amsmath}
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amssymb}
+
+\definecolor{backgroundcolor}{rgb}{1, 1, 1}
+\definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
+\definecolor{keywordstyle}{rgb}{0.6, 0.14, 0.576}
+\definecolor{numberstyle}{rgb}{0.5, 0.5, 0.5}
+\definecolor{stringstyle}{rgb}{0.77, 0.1, 0.08}
+
+\lstdefinestyle{xcodecolor}{
+    backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentstyle},
+    keywordstyle=\color{keywordstyle},
+    numberstyle=\scriptsize\color{numberstyle},
+    stringstyle=\color{stringstyle},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                   
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=xcodecolor}
+
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\setlength{\parindent}{0pt}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\begin{document}
+
+	{\Large
+	\textbf{Nearest Square}}
+	
+	\vspace{0.4cm}
+	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
+	\\
+	% document
+
+  \section*{Prompt}
+  Given an array of $n$ integers, find the nearest squares of all the integers.
+
+  \subsection*{Input Format}
+  The first and only line of input contains a space-separated array of $n$ integers.
+  \subsection*{Output Format}
+  The first and only line of your output must contain a single a space-separated array of $n$ integers.
+  \subsection*{Constraints}
+  \begin{itemize}
+    \item $ 2 \ge n \ge 100 $
+    \item $ 1 \ge \text{integer} \ge 1000 $
+  \end{itemize}
+  \subsection*{Sample Input/Output}
+  \begin{tabular}{ |l|l| } 
+    \hline
+    \textbf{Input} & \textbf{Output} \\
+    {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}} \\ % use \lstinputlisting{./testCases/<in/out>put/<in/out>put00.txt}
+    \hline
+   \end{tabular}
+
+
+  \section*{Solution}
+   Let's take a random number, say \texttt{125}. Now, to obtain the 2 nearest squares, we find the squares of $\lfloor\sqrt{125}\rfloor$ and $\lfloor\sqrt{125}\rfloor+1$:
+   \begin{align*}
+    \lfloor\sqrt{125}\rfloor^2\\
+    &= \lfloor11.18033\dots\rfloor^2\\
+    &= 11^2\\
+    &= 121\\
+   \end{align*}
+   \begin{align*}
+    (\lfloor\sqrt{125}\rfloor+1)^2\\
+    &= (\lfloor11.18033\dots\rfloor+1)^2\\
+    &= (11+1)^2\\
+    &= 12^2\\
+    &= 144\\
+   \end{align*}
+   As $121$ is closer to $125$, that's our answer.
+
+	\section*{Sample Program}
+	\lstinputlisting[language=Python]{sampleSolution.py}
+	
+
+\end{document}
