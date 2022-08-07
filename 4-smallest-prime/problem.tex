@@ -1,0 +1,91 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, total={7.3in, 9.7in}]{geometry}
+\usepackage{amsmath}
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amssymb}
+
+\definecolor{backgroundcolor}{rgb}{1, 1, 1}
+\definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
+\definecolor{keywordstyle}{rgb}{0.6, 0.14, 0.576}
+\definecolor{numberstyle}{rgb}{0.5, 0.5, 0.5}
+\definecolor{stringstyle}{rgb}{0.77, 0.1, 0.08}
+
+\lstdefinestyle{xcodecolor}{
+    backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentstyle},
+    keywordstyle=\color{keywordstyle},
+    numberstyle=\scriptsize\color{numberstyle},
+    stringstyle=\color{stringstyle},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                   
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=xcodecolor}
+
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\setlength{\parindent}{0pt}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\begin{document}
+
+	{\Large
+	\textbf{Smallest Prime}}
+	
+	\vspace{0.4cm}
+	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
+	\\
+	% document
+
+  \section*{Prompt}
+  Given a $3\times3$ 2D array of integers as input, return the smallest prime number in the array. Return \texttt{none} if there is no prime number.
+
+  \subsection*{Input Format}
+  The input contains a $3\times3$ 2D array of integers.
+  \subsection*{Output Format}
+  Your output should be a single integer. If there are not prime numbers, print \texttt{none}.
+  \subsection*{Constraints}
+  \begin{itemize}
+    \item $ 1 \ge n \ge 100 $
+  \end{itemize}
+  \subsection*{Sample Input/Output}
+  \begin{tabular}{ |l|l| } 
+    \hline
+    \textbf{Input} & \textbf{Output} \\
+    {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}} \\ % use \lstinputlisting{./testCases/<in/out>put/<in/out>put00.txt}
+    \hline
+   \end{tabular}
+
+
+  \section*{Solution}
+  Let's take a look at the sample input:\\
+  \lstinputlisting{./testCases/input/input00.txt}
+  First, let's filter out the primes:\\
+  \texttt{51, 19}\\
+  At this point, if we have no items in the array, we can print \texttt{none} and exit. Let's sort the array:\\
+  \texttt{19, 51}\\
+  The first element of the array is \texttt{19}. Thus, we can conclude theat the smallest prime number in the input is $19$.\\
+\\
+
+	\section*{Sample Program}
+	\lstinputlisting[language=Python]{sampleSolution.py}
+	
+
+\end{document}
