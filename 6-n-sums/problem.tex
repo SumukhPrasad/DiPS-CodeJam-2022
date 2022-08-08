@@ -1,0 +1,92 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, total={7.3in, 9.7in}]{geometry}
+\usepackage{amsmath}
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amssymb}
+
+\definecolor{backgroundcolor}{rgb}{1, 1, 1}
+\definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
+\definecolor{keywordstyle}{rgb}{0.6, 0.14, 0.576}
+\definecolor{numberstyle}{rgb}{0.5, 0.5, 0.5}
+\definecolor{stringstyle}{rgb}{0.77, 0.1, 0.08}
+
+\lstdefinestyle{xcodecolor}{
+    backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentstyle},
+    keywordstyle=\color{keywordstyle},
+    numberstyle=\scriptsize\color{numberstyle},
+    stringstyle=\color{stringstyle},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                   
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=xcodecolor}
+
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\setlength{\parindent}{0pt}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\begin{document}
+
+	{\Large
+	\textbf{$n$ Sums}}
+	
+	\vspace{0.4cm}
+	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
+	\\
+	% document
+
+  \section*{Prompt}
+  Given an integer $n$ and an array of terms that are $\le n$, find the minimum number of numbers from the array that sum up to exactly $n$.
+
+  \subsection*{Input Format}
+  \begin{itemize}
+    \item The first line of input contains the integer $n$.
+    \item The next line of input contains an array of terms that are $\le n$.
+  \end{itemize}
+  \subsection*{Output Format}
+  The first and only line of your output must contain the minimum number of numbers from the array that sum up to exactly $n$.
+  \subsection*{Constraints}
+  \begin{itemize}
+    \item $ 2 \ge n \ge 100 $
+  \end{itemize}
+  \subsection*{Sample Input/Output}
+  \begin{tabular}{ |l|l| } 
+    \hline
+    \textbf{Input} & \textbf{Output} \\
+    {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}} \\ % use \lstinputlisting{./testCases/<in/out>put/<in/out>put00.txt}
+    \hline
+   \end{tabular}
+
+
+  \section*{Solution}
+   To find the minimum number of numbers from the array that sum up to exactly $n$, take the following steps:
+   \begin{itemize}
+    \item First, find all the permutations of numbers from the list that sum up to $n$.
+    \item Second, Find the smallest number of numbers that can bee added to produce $n$. This can be achieved by sorting the list of permutations by the number of numbers in each permutation.
+   \end{itemize}
+
+
+	\section*{Sample Program}
+	\lstinputlisting[language=Python]{sampleSolution.py}
+	
+
+\end{document}
