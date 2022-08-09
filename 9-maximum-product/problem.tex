@@ -55,8 +55,13 @@
 	% document
 
   \section*{Prompt}
-  You are given a list of integers $n_1 \dots n_k$ (not necessarily distinct) where each has a value between 1 and 9. Using each of $n_1 \dots n_k$ exactly once, you can form concatenations of digits, to achieve a new list of numbers. You then have tp output the product of this new list. The goal is to maximize this product by choosing the best concatenations of digits.
-
+  You are given a list of integers $n_1 \dots n_k$ (not necessarily distinct) where each has a value between 1 and 9. Using each of $n_1 \dots n_k$ exactly once, you can form concatenations of digits, to achieve a new list of numbers. You then have to output the product of this new list. The goal is to maximize this product by choosing the best concatenations of digits.\\
+  For example, we are given the list: 2 3 2 (separated by spaces). We can form the following concatenations:
+  \begin{itemize}
+    \item \texttt{23 2} (product is 46)
+    \item \texttt{32 2} (product is 64)
+    \item \texttt{22 3} (product is 66)
+  \end{itemize}
   \subsection*{Input Format}
   The first and only line of the input contains $n_1 \dots n_k$, space-separated.
   \subsection*{Output Format}
