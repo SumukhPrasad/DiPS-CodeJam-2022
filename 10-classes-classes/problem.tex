@@ -1,0 +1,102 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, total={7.3in, 9.7in}]{geometry}
+\usepackage{amsmath}
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amssymb}
+
+\definecolor{backgroundcolor}{rgb}{1, 1, 1}
+\definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
+\definecolor{keywordstyle}{rgb}{0.6, 0.14, 0.576}
+\definecolor{numberstyle}{rgb}{0.5, 0.5, 0.5}
+\definecolor{stringstyle}{rgb}{0.77, 0.1, 0.08}
+
+\lstdefinestyle{xcodecolor}{
+    backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentstyle},
+    keywordstyle=\color{keywordstyle},
+    numberstyle=\scriptsize\color{numberstyle},
+    stringstyle=\color{stringstyle},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                   
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=xcodecolor}
+
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\setlength{\parindent}{0pt}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\begin{document}
+
+	{\Large
+	\textbf{Classes, Classes!}}
+	
+	\vspace{0.4cm}
+	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
+	\\
+	% document
+
+  \section*{Prompt}
+  It's a long day, and Guru has a lot of activities to attend. He needs to select the maximum number of activities that he can do in a given time frame, assuming that he can only work on a single activity at a time. Each activity has a set start and end time.\\
+  Can you help him figure out how many activities he can attend?
+
+  \subsection*{Input Format}
+  \begin{itemize}
+    \item The first line of the input contains an integer $n$, denoting the number of activities.
+    \item The next $n$ lines of the input each contain the start and end times of an activity, in the format $(\text{start}, \text{end})$.
+  \end{itemize}
+  \subsection*{Output Format}
+  The first and only line of your output must contain a single integer $m$, denoting the maximum number of activities he can attend.
+  \subsection*{Constraints}
+  \begin{itemize}
+    \item $ 4 \le n \le 24 $
+    \item Assume that the activities are already sorted based on end times.
+  \end{itemize}
+  \subsection*{Sample Input/Output}
+  \begin{tabular}{ |l|l| } 
+    \hline
+    \textbf{Input} & \textbf{Output} \\
+    {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}} \\ % use {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}}
+    \hline
+   \end{tabular}
+
+
+  \section*{Solution}
+   This is an example of the \textit{Activity Selection Problem}.
+  \subsection*{Simplifying the Problem}
+  Assume there exist $n$ activities with each of them being represented by a start time $s_i$ and finish time $f_i$. Two activities $i$ and $j$ are said to be non-conflicting if $s_i \ge f_j$ or $s_j \ge f_i$. The activity selection problem consists in finding the maximal solution set (S) of non-conflicting activities. Here, using a greedy algorithm to find the solution will always result in an optimal solution.
+  \subsection*{Solving the Problem}
+   \begin{itemize}
+    \item Let us create an empty array \texttt{arr}.
+    \item Now we can start adding activities to this array.
+    \item Since this is a greedy algorithm, the first activity is always selected.
+    \item Now we loop through the rest of the activities. For each activity:
+    \begin{itemize}
+      \item If this activity has a start time that is greater than or equal to the finish time of the previously selected activity, then append it to \texttt{{arr}}.
+     \end{itemize}
+     \item Finally, we print the length of \texttt{arr}, denoting the number of activities.
+   \end{itemize}
+
+	\section*{Sample Program}
+	\lstinputlisting[language=Python]{sampleSolution.py}
+	
+
+\end{document}
