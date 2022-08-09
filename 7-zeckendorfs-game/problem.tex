@@ -47,7 +47,7 @@
 \begin{document}
 
 	{\Large
-	\textbf{XXXX}}
+	\textbf{Zeckendorf's Game}}
 	
 	\vspace{0.4cm}
 	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
@@ -55,33 +55,41 @@
 	% document
 
   \section*{Prompt}
-
-
+  In a game of \textit{Zeckendorf}, your task is to find the shortest representation of a given integer as a sum of Fibonacci numbers. For example, the \textit{Zeckendorf} representation of 10 is $10 = 2 + 8$. Numbers \textbf{cannot} be repeated.\\
+  Pranav and Prithvi are playing a game of Zeckendorf. Can you help them find the answers as fast as possible?
   \subsection*{Input Format}
-
+  The first and only line of input will contain an integer $n$.
   \subsection*{Output Format}
-
+  The first and only line of your output must contain a space-separated list of the \textit{Zeckendorf} representation of $n$, sorted in ascending order.
   \subsection*{Constraints}
-
+  $ 1 \ge n \ge 10^5 $
   \subsection*{Sample Input/Output}
   \begin{tabular}{ |l|l| } 
     \hline
     \textbf{Input} & \textbf{Output} \\
-    {Sample input} & {Sample output} \\ % use {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}}
+    {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}} \\ % use \lstinputlisting{./testCases/<in/out>put/<in/out>put00.txt}
     \hline
    \end{tabular}
 
 
   \section*{Solution}
-
-
-  \subsection*{Simplifying the Problem}
-
-  \subsection*{Solving the Problem}
-
-
+  Let's take the sample input (93743) as $n$. To find the \textit{Zeckendorf} representation, we\\
+  \begin{itemize}
+    \item  First, find the greatest Fibonacci Number smaller than or equal to $n$.
+    \item Append the fibonacci number we found to an array.
+    \item Reduce $n$ by $f$ ($n=n-f$).
+    \item Repeat these steps while $n>0$.
+    \item We now have an array of the \textit{Zeckendorf} representation of $n$. To obtain the result, we sort the array in ascending order, and then print it.
+  \end{itemize}
 	\section*{Sample Program}
 	\lstinputlisting[language=Python]{sampleSolution.py}
 	
 
 \end{document}
+% https://codegolf.stackexchange.com
+% https://codegolf.stackexchange.com/questions/250745/cryptic-multiplications
+% https://codegolf.stackexchange.com/questions/49943/maximum-concatenated-product?rq=1
+% https://codegolf.stackexchange.com/questions/194869/do-you-make-me-up
+% https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem
+% https://codereview.stackexchange.com/questions/36655/count-possible-paths-through-a-maze
+% Game of Life - next iter find.
