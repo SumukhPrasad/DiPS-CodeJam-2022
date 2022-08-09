@@ -1,0 +1,95 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, total={7.3in, 9.7in}]{geometry}
+\usepackage{amsmath}
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amssymb}
+
+\definecolor{backgroundcolor}{rgb}{1, 1, 1}
+\definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
+\definecolor{keywordstyle}{rgb}{0.6, 0.14, 0.576}
+\definecolor{numberstyle}{rgb}{0.5, 0.5, 0.5}
+\definecolor{stringstyle}{rgb}{0.77, 0.1, 0.08}
+
+\lstdefinestyle{xcodecolor}{
+    backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentstyle},
+    keywordstyle=\color{keywordstyle},
+    numberstyle=\scriptsize\color{numberstyle},
+    stringstyle=\color{stringstyle},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                   
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=xcodecolor}
+
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\setlength{\parindent}{0pt}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\begin{document}
+
+	{\Large
+	\textbf{Maximum Product}}
+	
+	\vspace{0.4cm}
+	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
+	\\
+	% document
+
+  \section*{Prompt}
+  You are given a list of integers $n_1 \dots n_k$ (not necessarily distinct) where each has a value between 1 and 9. Using each of $n_1 \dots n_k$ exactly once, you can form concatenations of digits, to achieve a new list of numbers. You then have tp output the product of this new list. The goal is to maximize this product by choosing the best concatenations of digits.
+
+  \subsection*{Input Format}
+  The first and only line of the input contains $n_1 \dots n_k$, space-separated.
+  \subsection*{Output Format}
+  The first and only line of your output must contain the maximum product.
+  \subsection*{Constraints}
+  \begin{itemize}
+    \item $1 \le n \le 9$
+    \item $3 \le k \le 100$
+  \end{itemize}
+  \subsection*{Sample Input/Output}
+  \begin{tabular}{ |l|l| } 
+    \hline
+    \textbf{Input} & \textbf{Output} \\
+    {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}} \\ % use {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}}
+    \hline
+   \end{tabular}
+
+
+  \section*{Solution}
+  The optimal solution can be found applying a single multiplication. This gives:
+    \begin{align*}(10x + d)y > (10y + d)x\end{align*}
+  where $x$ and $y$ are the two numbers and $d$ is the next digit to insert. It follows that $y > x$ and thus each new digit must be concatenated to the smallest number. Digits should be added in descending order.\\
+  Applying this to the sample input \texttt{3 5 5 2}, we get the following steps:
+   \begin{align*}
+    5&, 0\\
+    5&, 5\\
+    53&, 5\\
+    53&, 52\\
+   \end{align*}
+   The answer is $53\cdot52$, or $2756$.
+
+	\section*{Sample Program}
+	\lstinputlisting[language=Python]{sampleSolution.py}
+	
+
+\end{document}
