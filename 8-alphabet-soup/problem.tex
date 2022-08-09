@@ -1,0 +1,82 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper, total={7.3in, 9.7in}]{geometry}
+\usepackage{amsmath}
+\usepackage{upquote}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{amssymb}
+
+\definecolor{backgroundcolor}{rgb}{1, 1, 1}
+\definecolor{commentstyle}{rgb}{0.365, 0.422, 0.475}
+\definecolor{keywordstyle}{rgb}{0.6, 0.14, 0.576}
+\definecolor{numberstyle}{rgb}{0.5, 0.5, 0.5}
+\definecolor{stringstyle}{rgb}{0.77, 0.1, 0.08}
+
+\lstdefinestyle{xcodecolor}{
+    backgroundcolor=\color{backgroundcolor},   
+    commentstyle=\color{commentstyle},
+    keywordstyle=\color{keywordstyle},
+    numberstyle=\scriptsize\color{numberstyle},
+    stringstyle=\color{stringstyle},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                   
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=xcodecolor}
+
+\usepackage[T1]{fontenc}
+\usepackage{cascadia-code}
+
+% Raised Rule Command:
+%  Arg 1 (Optional) - How high to raise the rule
+%  Arg 2            - Thickness of the rule
+\newcommand{\raisedrule}[2][0em]{\leaders\hbox{\rule[#1]{1pt}{#2}}\hfill}
+
+\setlength{\parindent}{0pt}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+\begin{document}
+
+	{\Large
+	\textbf{Alphabet Soup}}
+	
+	\vspace{0.4cm}
+	DiPS CodeJam 22\raisedrule[0.25em]{1pt}
+	\\
+	% document
+
+  \section*{Prompt}
+  Every string has an "alphabet", composed of the characters that make it up. For example, the alphabet of $aabbccabcabc$ is $a, b, c$. There are two operations you can do with alphabets: getting the alphabet of a string, and seeing if another string has a given alphabet. Given two strings, you must write a program that finds the alphabet of the first string, and returns \textit{true} or \textit{false} based on whether that alphabet makes up the second string.
+  \subsection*{Input Format}
+    The first and only line of input contains 2 space-separated strings which you have to evaluate.
+  \subsection*{Output Format}
+    The first and only line of your output must contain \texttt{true} or \texttt{false}, depending on the test case.
+  \subsection*{Constraints}
+    $10 \le \text{length of strings} \le 100$
+  \subsection*{Sample Input/Output}
+  \begin{tabular}{ |l|l| } 
+    \hline
+    \textbf{Input} & \textbf{Output} \\
+    {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}} \\ % use {\lstinputlisting{./testCases/input/input00.txt}} & {\lstinputlisting{./testCases/output/output00.txt}}
+    \hline
+   \end{tabular}
+
+
+  \section*{Solution}
+   To find whether that alphabet of the first string makes up the second string, we must find whether the set of characters in the second string is a subset of the set of characters in the first string.
+
+
+	\section*{Sample Program}
+	\lstinputlisting[language=Python]{sampleSolution.py}
+	
+
+\end{document}
