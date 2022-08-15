@@ -13,7 +13,7 @@ for i in range(0, 10):
      n = str(i).zfill(2)
 
      inputFile = open(f'./testCases/input/input{n}.txt', 'a')
-     inputFile.write(str(i))
+     inputFile.write(str(i+1))
      inputFile.close()
      
      outputFile = open(f'./testCases/output/output{n}.txt', 'a')
