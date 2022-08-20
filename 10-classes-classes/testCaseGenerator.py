@@ -34,13 +34,19 @@ def solve(n, arr):
 
 def getTestCase():
      numberOfActivities = random.randint(4,24)
-     activityTimes = []
-     for i in range(numberOfActivities):
+     activityTimesIntegerStore = []
+     for _ in range(numberOfActivities):
           #print(f"Activity {i+1}:")
           #activityTimes.append(input("Start time? ") + " " + input("End time? "))
           startT = random.randint(0,19)
           dur = random.randint(1,5)
-          activityTimes.append(str(startT) + " " + str(startT+dur))
+          activityTimesIntegerStore.append([startT, startT+dur])
+          
+     activityTimesIntegerStore.sort(key=lambda x: x[1])
+
+     activityTimes = [str(e[0]) + " " + str(e[1]) for e in activityTimesIntegerStore]
+
+     
           
      return [str(numberOfActivities) + "\n" + "\n".join(activityTimes), str(solve(numberOfActivities, activityTimes))]
 
