@@ -54,12 +54,8 @@
 
 
 	\section*{Prompt}
-    A cricket championship of \textit{n} teams is taking place, where each team plays all other teams once in a \textit{round-robin} fashion. A team gets 5 points for winning a match, and 0 for loosing. It is assumed that no match will end in a draw or a tie. What is the \textbf{maximum possible difference} of points between the winning team and the second-placed team?\\
-
-    \section*{Solution}
-    \subsection*{Simplifying the Problem}
-    We can simplify the problem like so:\\
-    Find the maximum number of points by which a team can win a \textit{n}-team competition, if each team plays every other team in round robin fashion. Teams get 5 points for a win and 0 points for a loss. Assume that there are no draws.
+    A cricket championship of \textit{n} teams is taking place, where each team plays all other teams once in a \textit{round-robin} fashion. A team gets 5 points for winning a match, and 0 for loosing. It is assumed that no match will end in a draw or a tie. What is the \textbf{maximum possible difference} of points between the winning team and the second-placed team?
+    
     \subsection*{Input Format}
     \begin{itemize}
       \item The first line of input contains a single integer $t$, denoting the number of test cases.
@@ -79,6 +75,11 @@
       {\lstinputlisting{./testCases/input/input10.txt}} & {\lstinputlisting{./testCases/output/output10.txt}} \\ % use \lstinputlisting{./testCases/<in/out>put/00/.txt}
       \hline
      \end{tabular}
+
+    \section*{Solution}
+    \subsection*{Simplifying the Problem}
+    We can simplify the problem like so:\\
+    Find the maximum number of points by which a team can win a \textit{n}-team competition, if each team plays every other team in round robin fashion. Teams get 5 points for a win and 0 points for a loss. Assume that there are no draws.
     \subsection*{Solving the Problem}
     To get the maximum possible points, a team has to win every match they play. Let's assume that the team in 1st place won all the matches they played. In a \textit{round-robin} fashion, each team will have played $n-1$ matches. As the first team won all the matches they played, all the other teams have $n-2$ matches, which they may win or loose. To maximize the difference in points between the first-placed team and second-placed team, points of the second-placed team must be the minimum possible, without changing its standing. This will happen only when the team wins and looses an equal number of matches. Applying this, we get the formula:
     \begin{align*}
